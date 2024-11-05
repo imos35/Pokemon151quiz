@@ -1,5 +1,3 @@
-@import url('');
-
 * {
     padding: 0;
     margin: 0;
@@ -7,17 +5,73 @@
 }
 
 body {
-    background-color: white;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: red;
 }
 
 header {
-    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
 }
 
 main {
-    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-grow: 1;
+    justify-content: space-between;
+}
+
+.pokemon-container {
+    margin-top: 80px;
 }
 
 #logo-header {
+    max-width: 300px;
+}
 
+#type-area {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.type-btn {
+    width: 75px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.type-icon {
+    max-width: 100%;
+    height: auto;
+}
+
+#next-question {
+    width: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px auto;
+    background-color: transparent;
+}
+
+#next-img {
+    max-width: 100%;
+    height: auto;
+}
+
+footer {
+    padding-top: 15px;
+    padding-bottom: 5px;
+    display: flex;
+    justify-content: center;
+    color: whitesmoke;
 }
