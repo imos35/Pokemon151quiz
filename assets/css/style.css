@@ -1,3 +1,8 @@
+@font-face {
+    font-family: 'pokemon';
+    src: url('../fonts/pokemon_solid.ttf') format('truetype');
+}
+
 * {
     padding: 0;
     margin: 0;
@@ -23,11 +28,31 @@ main {
     flex-direction: column;
     align-items: center;
     flex-grow: 1;
-    justify-content: space-between;
+    justify-content: space-evenly;
 }
 
 .pokemon-container {
-    margin-top: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#pokemon-image {
+    width: 200px;
+    height: auto;
+}
+
+#pokemon-name {
+    font-family: 'pokemon', sans-serif;
+    color: #ffcc03;
+    font-size: 2rem;
+    text-transform: capitalize;
+    text-shadow: 
+    -2px -2px 0 #006caf,
+    2px -2px 0 #006caf,
+    -2px 2px 0 #006caf,
+    2px 2px 0 #006caf;
 }
 
 #logo-header {
