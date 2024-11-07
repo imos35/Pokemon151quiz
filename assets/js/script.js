@@ -79,11 +79,10 @@ function handleClick(event){
     };
 }
  
-    document.getElementById('next-question').addEventListener('click', () => {getPokemon()});
 
     console.log(`You clicked on: ${buttonType}`);
 }
-
+document.getElementById('next-question').addEventListener('click', () => {getPokemon()});
 
 
 document.addEventListener('DOMContentLoaded', getPokemon);
