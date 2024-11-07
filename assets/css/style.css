@@ -7,6 +7,7 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    
 }
 
 body {
@@ -14,6 +15,15 @@ body {
     display: flex;
     flex-direction: column;
     background-color: red;
+    font-family: 'pokemon', sans-serif;
+    color: #ffcc03;
+    text-transform: capitalize;
+    text-shadow: 
+    -2px -2px 0 #006caf,
+    2px -2px 0 #006caf,
+    -2px 2px 0 #006caf,
+    2px 2px 0 #006caf;
+    font-family: 'pokemon', sans-serif;
 }
 
 header {
@@ -36,23 +46,18 @@ main {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin-top: -50px;
 }
 
 #pokemon-image {
-    width: 200px;
+    width: 170px;
     height: auto;
 }
 
 #pokemon-name {
-    font-family: 'pokemon', sans-serif;
-    color: #ffcc03;
-    font-size: 2rem;
-    text-transform: capitalize;
-    text-shadow: 
-    -2px -2px 0 #006caf,
-    2px -2px 0 #006caf,
-    -2px 2px 0 #006caf,
-    2px 2px 0 #006caf;
+
+    font-size: 1.5rem;
+
 }
 
 #logo-header {
@@ -86,6 +91,9 @@ main {
     justify-content: center;
     margin: 20px auto;
     background-color: transparent;
+    cursor: pointer;
+    border: none;
+
 }
 
 #next-img {
@@ -94,9 +102,18 @@ main {
 }
 
 footer {
-    padding-top: 15px;
-    padding-bottom: 5px;
+    padding-top: 10px;
+    padding-bottom: 15px;
     display: flex;
     justify-content: center;
-    color: whitesmoke;
+    align-items: center;
+}
+
+footer p {
+    padding: 0px 10px;
+}
+
+.pokeball-icon {
+    width: 15px;
+    height: auto;
 }
