@@ -79,6 +79,11 @@ main {
     cursor: pointer;
 }
 
+.type-btn.pressed {
+    transform: scale(0.9);
+    transition: transform 0.1s ease;
+}
+
 .type-icon {
     max-width: 100%;
     height: auto;
