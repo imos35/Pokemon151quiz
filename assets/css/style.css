@@ -65,9 +65,31 @@ main {
 
 }
 
+.indicators {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+
+}
+
 #answer-indicator {
+    text-align: center;
+    width: 200px;
     height: 20px;
-    margin-top: 10px;
+    margin-top: 15px;
+    margin-bottom: -15px;
+    white-space: nowrap;
+
+}
+
+.score-time {
+    flex-shrink: 0;
+    font-size: 1.2rem;
+    margin-bottom: -30px;
+    padding: 0 15px;
 }
 
 #logo-header {

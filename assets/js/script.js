@@ -3,6 +3,7 @@ console.log('script loaded');
 let pokemonImage = document.getElementById('pokemon-image');
 let pokemonName = document.getElementById('pokemon-name');
 let answerIndi = document.getElementById('answer-indicator');
+let score = 0;
 
 let pokemonType = [];
 let selectedTypes = [];
@@ -70,7 +71,10 @@ function handleClick(event) {
         let isCorrect = selectedTypes.every(type => pokemonType.includes(type));
 
         if (isCorrect) {
+            score += 1;
+           /* document.getElementById('score-display').textContent = `Score: ${score}`;*/
             displayCorrectAnswer();
+            console.log(score)
         } else {
             displayWrongAnswer();
         }
@@ -96,7 +100,7 @@ function displayCorrectAnswer() {
 }
 
 function displayWrongAnswer() {
-    answerIndi.style.color = 'red';
+    answerIndi.style.color = '#ff2b2b';
     answerIndi.style.textShadow = `
         -2px -2px 0 #8b0000,
         2px -2px 0 #8b0000,
