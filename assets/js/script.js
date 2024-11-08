@@ -8,55 +8,49 @@ let pokemonType = [];
 let selectedTypes = [];
 
 async function getPokemon() {
-
-
     try {
-        let randomPokemon = (Math.floor(Math.random() * 151) + 1);
+        let randomPokemon = Math.floor(Math.random() * 151) + 1;
         let response = await fetch(`https://pokeapi.co/api/v2/pokemon/${randomPokemon}`);
         let data = await response.json();
 
         let name = data.name;
         let sprite = data.sprites.front_default;
         let type = data.types.map(typeInfo => typeInfo.type.name);
-        console.log(type)
+        console.log(type);
 
         if (name.toLowerCase() === 'magneton' || name.toLowerCase() === 'magnemite') {
             pokemonType = type.filter(type => type !== 'steel');
-        } 
-        else if(name.toLowerCase() === 'clefable' 
-        || name.toLowerCase() === 'clefairy') {
+        } else if (name.toLowerCase() === 'clefable' || name.toLowerCase() === 'clefairy') {
+            pokemonType = type.filter(type => type !== 'fairy').concat('normal');
+        } else if (name.toLowerCase() === 'wigglytuff') {
             pokemonType = type.filter(type => type !== 'fairy');
-            pokemonType.push('normal') 
-        }
-        else if(name.toLowerCase() === 'wigglytuff') {
-            pokemonType = type.filter(type => type !== 'fairy');
-        }
-        else {
+        } else {
             pokemonType = type;
         }
-
 
         pokemonName.textContent = name;
         pokemonImage.src = sprite;
         pokemonImage.alt = name;
         pokemonImage.style.display = 'block';
 
-    answerIndi.innerHTML = ''
-    answerIndi.style.color = '#ffcc03'
-
+        answerIndi.textContent = '';
+        answerIndi.style.color = '#ffcc03';
+        answerIndi.style.textShadow = `
+            -2px -2px 0 #006caf,
+            2px -2px 0 #006caf,
+            -2px 2px 0 #006caf,
+            2px 2px 0 #006caf`;
     } catch (error) {
         console.log("Could not fetch Pokémon! Error:", error);
     }
 }
 
 let typeButtons = document.querySelectorAll('.type-btn');
-typeButtons.forEach(
-    button => {button.addEventListener('click', handleClick)}
-)
+typeButtons.forEach(button => {
+    button.addEventListener('click', handleClick);
+});
 
-
-
-function handleClick(event){
+function handleClick(event) {
     let clickedButton = event.currentTarget;
     let buttonType = clickedButton.getAttribute('data-type');
 
@@ -66,43 +60,81 @@ function handleClick(event){
         clickedButton.classList.remove('pressed');
     }, 100);
 
-    if(!selectedTypes.includes(buttonType)){
-        selectedTypes.push(buttonType)
+    if (!selectedTypes.includes(buttonType)) {
+        selectedTypes.push(buttonType);
     }
 
+    answerIndi.textContent = selectedTypes.join(' / ');
 
-    answerIndi.innerHTML = `${selectedTypes}`
-
-    if(pokemonType.length === selectedTypes.length){
+    if (pokemonType.length === selectedTypes.length) {
         let isCorrect = selectedTypes.every(type => pokemonType.includes(type));
 
-    if(isCorrect){
-        answerIndi.style.color = '#12da00'
-        console.log('correct!')
-        selectedTypes = []
-        setTimeout(() => {
-            getPokemon();
-        }, 300);
-
-
-    } 
-    else {
-        console.log('wrong!')
-        answerIndi.style.color = 'red'
-        selectedTypes = []
-        setTimeout(() => {
-            answerIndi.innerHTML = '',
-            answerIndi.style.color = '#ffcc03';
-        }, 300);
-    };
-}
- 
+        if (isCorrect) {
+            displayCorrectAnswer();
+        } else {
+            displayWrongAnswer();
+        }
+    }
 
     console.log(`You clicked on: ${buttonType}`);
 }
-document.getElementById('next-question').addEventListener('click', () => {getPokemon()});
 
+function displayCorrectAnswer() {
+    answerIndi.style.color = '#12da00';
+    answerIndi.style.textShadow = `
+        -2px -2px 0 #004400,
+        2px -2px 0 #004400,
+        -2px 2px 0 #004400,
+        2px 2px 0 #004400`;
+    console.log('correct!');
+    selectedTypes = [];
 
+    setTimeout(() => {
+        getPokemon();
+        resetAnswerIndicator();
+    }, 300);
+}
 
+function displayWrongAnswer() {
+    answerIndi.style.color = 'red';
+    answerIndi.style.textShadow = `
+        -2px -2px 0 #8b0000,
+        2px -2px 0 #8b0000,
+        -2px 2px 0 #8b0000,
+        2px 2px 0 #8b0000`;
+    console.log('wrong!');
+    selectedTypes = [];
+
+    setTimeout(() => {
+        resetAnswerIndicator();
+    }, 300);
+}
+
+function resetAnswerIndicator() {
+    answerIndi.textContent = '';
+    answerIndi.style.color = '#ffcc03';
+    answerIndi.style.textShadow = `
+        -2px -2px 0 #006caf,
+        2px -2px 0 #006caf,
+        -2px 2px 0 #006caf,
+        2px 2px 0 #006caf`;
+}
+
+document.getElementById('next-question').addEventListener('click', handleNextQuestion);
+
+function handleNextQuestion() {
+    answerIndi.style.color = 'grey';
+    answerIndi.style.textShadow = `
+        -2px -2px 0 #555555,
+        2px -2px 0 #555555,
+        -2px 2px 0 #555555,
+        2px 2px 0 #555555`;
+    selectedTypes = [];
+
+    setTimeout(() => {
+        resetAnswerIndicator();
+        getPokemon();
+    }, 300);
+}
 
 document.addEventListener('DOMContentLoaded', getPokemon);
