@@ -10,6 +10,10 @@
     
 }
 
+body, html {
+    overflow: hidden;
+}
+
 body {
     min-height: 100vh;
     display: flex;
@@ -39,6 +43,7 @@ main {
     align-items: center;
     flex-grow: 1;
     justify-content: space-evenly;
+    padding-bottom: 30px;
 }
 
 .pokemon-container {
@@ -58,6 +63,10 @@ main {
 
     font-size: 1.5rem;
 
+}
+
+#answer-indicator {
+    margin-top: 5px;
 }
 
 #logo-header {
@@ -89,6 +98,12 @@ main {
     height: auto;
 }
 
+#nxtqst-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 #next-question {
     width: 200px;
     display: flex;
@@ -109,9 +124,7 @@ main {
 footer {
     padding-top: 10px;
     padding-bottom: 15px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+
 }
 
 footer p {

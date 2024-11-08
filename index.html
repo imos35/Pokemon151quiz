@@ -25,6 +25,7 @@
         <div class="pokemon-container">
            <img id="pokemon-image" src="" alt="Pokémon" style="display: none;"/>
             <p id="pokemon-name"></p>
+            <p id="answer-indicator"></p>
         </div>
     <div id="answer-area">
         <div id="type-area">
@@ -74,14 +75,18 @@
                 <img class="type-icon" src="assets/images/type-logos/Normal.png" alt="normal">
             </button>
         </div>
-        <button id="next-question" class="type-btn" data-type="Passed"><img id="next-img" src="assets/images/nextquestion.png" alt="Next Question?"></button>
+    <div id="nxtqst-container">
+        <img class="pokeball-icon" src="assets/images/pokemon-icon.png" alt="Pokéball Icon">
+        <button id="next-question" class="type-btn" data-type="passed"><img id="next-img" src="assets/images/nextquestion.png" alt="Next Question?"></button>
+        <img class="pokeball-icon" src="assets/images/pokemon-icon.png" alt="Pokéball Icon">
+    </div>
     </div>
     </main>
-    <footer>
-        <img class="pokeball-icon" src="assets/images/pokemon-icon.png" alt="Pokéball Icon">
+<!--   <footer>
+        
             <p>@Pokémon</p>
-        <img class="pokeball-icon" src="assets/images/pokemon-icon.png" alt="Pokéball Icon">
-    </footer>
+        
+    </footer> -->
     <script src="assets/js/script.js"></script>
 </body>
 </html>
