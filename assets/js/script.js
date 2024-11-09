@@ -173,7 +173,7 @@ function handleNextQuestion() {
 let timer;
 
 function startTimer() {
-    let timeLeft = 3;
+    let timeLeft = 45;
     document.getElementById('timer-display').textContent = `${timeLeft}`;
 
     timer = setInterval(() => {

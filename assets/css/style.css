@@ -31,6 +31,13 @@ body {
         2px 2px 0 #006caf;
 }
 
+#page-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
 header {
     display: flex;
     justify-content: center;
@@ -48,6 +55,7 @@ main {
     flex-direction: column;
     align-items: center;
     width: 100%;
+    background-color: red;
 }
 
 /* GAME AREA */
@@ -291,7 +299,92 @@ main {
 }
 
 @media (min-width: 768px) {
+
+
+body {
+    background-image: url('assets/images/pokeball_background1.webp');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    margin: 0;
+    padding: 0;
+
+}
+
+header {
+
+}
+
+main {
+    width: 80%;
+    max-width: 1200px;
+    padding: 20px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+    height: 100vh;
+    margin-top: 10px;
+}
     
+/* TUTORIAL */
+
+#next-btn img {
+    width: 100%;
+    height: auto;
+}
+
+/* START AREA */
+
+#start-screen, #game-screen {
+    margin-top: 80px;
+}
+
+#start-btn {
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    margin: 50px auto;
+}
+
+#start-btn img {
+    width: 100%;
+    height: auto;
+    padding: 20px;
+}
+
+/* GAME AREA */
+
+#pokemon-image {
+    width: 50%;
+    margin-bottom: -20px;
+}
+
+#nxtqst-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+}
+
+#next-question {
+    width: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    cursor: pointer;
+    border: none;
+}
+
+#next-img {
+    max-width: 100%;
+    height: auto;
+    padding: 0 15px;
+}
+
+.pokeball-icon {
+    width: 30px;
+    height: auto;
+}
 
 
 
@@ -300,6 +393,4 @@ main {
 
 
 
-
-    
 }
