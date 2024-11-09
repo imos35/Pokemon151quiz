@@ -49,7 +49,7 @@ main {
 /* GAME AREA */
 
 #game-screen {
-    display: flex;
+    display: none;
     flex-direction: column;
     align-items: center;
     width: 100%;
@@ -180,7 +180,7 @@ main {
 /* START AREA */
 
 #start-screen {
-    display: none;
+    display: flex;
     flex-direction: column;
     align-items: center;
 }
@@ -229,7 +229,7 @@ main {
     font-weight: bold;
 }
 
-#restart-button {
+#restart-btn {
     margin-top: 20px;
     padding: 10px 20px;
     cursor: pointer;

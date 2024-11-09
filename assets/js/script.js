@@ -22,13 +22,22 @@ let pokemonImage = document.getElementById('pokemon-image');
 let pokemonName = document.getElementById('pokemon-name');
 let answerIndi = document.getElementById('answer-indicator');
 let score = 0;
-
+let usedPokemonIds;
 let pokemonType = [];
 let selectedTypes = [];
 
+
+
 async function getPokemon() {
     try {
-        let randomPokemon = Math.floor(Math.random() * 151) + 1;
+        let randomPokemon 
+
+        do {
+            randomPokemon = Math.floor(Math.random() * 151) + 1;
+        } while (usedPokemonIds.has(randomPokemon));
+
+        usedPokemonIds.add(randomPokemon);
+
         let response = await fetch(`https://pokeapi.co/api/v2/pokemon/${randomPokemon}`);
         let data = await response.json();
 
@@ -41,7 +50,7 @@ async function getPokemon() {
             pokemonType = type.filter(type => type !== 'steel');
         } else if (name.toLowerCase() === 'clefable' || name.toLowerCase() === 'clefairy') {
             pokemonType = type.filter(type => type !== 'fairy').concat('normal');
-        } else if (name.toLowerCase() === 'wigglytuff' || name.toLowerCase() === 'jigglypuff') {
+        } else if (name.toLowerCase() === 'wigglytuff' || name.toLowerCase() === 'jigglypuff' || name.toLowerCase() === 'mr-mime') {
             pokemonType = type.filter(type => type !== 'fairy');
         } else {
             pokemonType = type;
@@ -127,6 +136,8 @@ function displayWrongAnswer() {
     console.log('wrong!');
     selectedTypes = [];
 
+    answerIndi.textContent = 'Passed!';
+
     setTimeout(() => {
         resetAnswerIndicator();
     }, 300);
@@ -158,3 +169,52 @@ function handleNextQuestion() {
         getPokemon();
     }, 300);
 }
+
+let timer;
+let timeLeft = 45;
+
+function startTimer() {
+    timeLeft = 45;
+    document.getElementById('timer-display').textContent = `${timeLeft}`;
+
+    timer = setInterval(() => {
+        timeLeft--;
+        document.getElementById('timer-display').textContent = `${timeLeft}`;
+        
+        if (timeLeft <= 0) {
+            clearInterval(timer);
+            showScoreScreen();
+        }
+    }, 1000);
+}
+
+function showStartScreen() {
+    document.getElementById('start-screen').style.display = 'block';
+    document.getElementById('game-screen').style.display = 'none';
+    document.getElementById('score-screen').style.display = 'none';
+}
+
+function showGameScreen() {
+    document.getElementById('start-screen').style.display = 'none';
+    document.getElementById('game-screen').style.display = 'block';
+    document.getElementById('score-screen').style.display = 'none';
+    usedPokemonIds = new Set();
+    getPokemon()
+    startTimer();
+}
+
+function showScoreScreen() {
+    document.getElementById('start-screen').style.display = 'none';
+    document.getElementById('game-screen').style.display = 'none';
+    document.getElementById('score-screen').style.display = 'block';
+    document.getElementById('final-score').textContent = `${score}`;
+    usedPokemonIds.clear();
+}
+
+document.getElementById('start-btn').addEventListener('click', showGameScreen)
+
+document.getElementById('restart-btn').addEventListener('click', () => {
+    score = 0;
+    showStartScreen();
+});
+
