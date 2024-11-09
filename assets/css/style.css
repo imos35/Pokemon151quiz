@@ -49,7 +49,7 @@ main {
 /* GAME AREA */
 
 #game-screen {
-    display: none;
+    display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
@@ -175,6 +175,36 @@ main {
 .pokeball-icon {
     width: 15px;
     height: auto;
+}
+
+/* START AREA */
+
+#start-screen {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+}
+
+#start-pokemon-image {
+    width: 220px;
+    height: auto;
+}
+
+#start-screen p {
+    text-align: center;
+    font-size: 2rem;
+}
+
+#start-btn {
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+}
+
+#start-btn img {
+    width: 80%;
+    height: auto;
+    padding: 20px;
 }
 
 /* SCORE AREA */

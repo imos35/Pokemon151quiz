@@ -9,6 +9,7 @@ async function fetchRandomPokemon() {
         let sprite = data.sprites.front_default;
 
         document.getElementById('start-pokemon-image').src = sprite;
+        document.getElementById('start-pokemon-image').style.display = 'block';
 
     } catch (error) {
         console.log("Could not fetch Pokémon! Error:", error);
@@ -157,4 +158,3 @@ function handleNextQuestion() {
         getPokemon();
     }, 300);
 }
-
