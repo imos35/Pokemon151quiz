@@ -185,14 +185,16 @@ main {
 /* START AREA */
 
 #start-screen {
-    display: flex;
+    display: none;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
 }
 
 #start-pokemon-image {
     width: 220px;
     height: auto;
+    margin: 0 auto;
 }
 
 #start-screen p {
@@ -204,6 +206,7 @@ main {
     cursor: pointer;
     background-color: transparent;
     border: none;
+    margin: 0 auto;
 }
 
 #start-btn img {
@@ -245,4 +248,58 @@ main {
 #restart-button img {
     width: 60%;
     height: auto;
+}
+
+/* TUTORIAL */
+
+#tutorial {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background-color: red;
+    color: #ffcc03;
+    padding: 20px;
+    font-family: 'pokemon', sans-serif;
+    justify-content: center;
+    width: 80%;
+}
+
+#tutorial h1 {
+    font-size: 2.5rem;
+}
+
+#tutorial p, #tutorial ul {
+    font-size: 1.2rem;
+    max-width: 500px;
+    margin: 15px 0;
+}
+
+#next-btn {
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    border-radius: 5px;
+}
+
+#next-btn img {
+    width: 30%;
+    height: auto;
+}
+
+@media (min-width: 768px) {
+    
+
+
+
+
+
+
+
+
+
+    
 }

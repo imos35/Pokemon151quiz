@@ -171,10 +171,9 @@ function handleNextQuestion() {
 
 // Timer functionality
 let timer;
-let timeLeft = 400;
 
 function startTimer() {
-    timeLeft = 45;
+    let timeLeft = 3;
     document.getElementById('timer-display').textContent = `${timeLeft}`;
 
     timer = setInterval(() => {
@@ -189,16 +188,26 @@ function startTimer() {
 }
 
 // Screen display functions
-function showStartScreen() {
-    document.getElementById('start-screen').style.display = 'block';
+
+function showTutorialScreen() {
+    document.getElementById('start-screen').style.display = 'none';
     document.getElementById('game-screen').style.display = 'none';
     document.getElementById('score-screen').style.display = 'none';
+    document.getElementById('tutorial').style.display = 'flex';
+}
+
+function showStartScreen() {
+    document.getElementById('start-screen').style.display = 'flex';
+    document.getElementById('game-screen').style.display = 'none';
+    document.getElementById('score-screen').style.display = 'none';
+    document.getElementById('tutorial').style.display = 'none';
 }
 
 function showGameScreen() {
     document.getElementById('start-screen').style.display = 'none';
-    document.getElementById('game-screen').style.display = 'block';
+    document.getElementById('game-screen').style.display = 'flex';
     document.getElementById('score-screen').style.display = 'none';
+    document.getElementById('tutorial').style.display = 'none';
     usedPokemonIds.clear();
     getPokemon();
     startTimer();
@@ -207,11 +216,13 @@ function showGameScreen() {
 function showScoreScreen() {
     document.getElementById('start-screen').style.display = 'none';
     document.getElementById('game-screen').style.display = 'none';
-    document.getElementById('score-screen').style.display = 'block';
+    document.getElementById('score-screen').style.display = 'flex';
+    document.getElementById('tutorial').style.display = 'none';
     document.getElementById('final-score').textContent = `${score}`;
 }
 
 // Button events for starting and restarting
+document.getElementById('next-btn').addEventListener('click', showStartScreen);
 document.getElementById('start-btn').addEventListener('click', showGameScreen);
 document.getElementById('restart-btn').addEventListener('click', () => {
     score = 0;
@@ -219,6 +230,7 @@ document.getElementById('restart-btn').addEventListener('click', () => {
 });
 
 // Initialize data when page loads
+
 document.addEventListener('DOMContentLoaded', () => {
-    fetchAllPokemon();
+    fetchAllPokemon(), showTutorialScreen();
 });
