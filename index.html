@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,85 +14,93 @@
     <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon/favicon-16x16.png">
     <link rel="manifest" href="assets/images/favicon/site.webmanifest">
-    
-    
+
+
 
 </head>
+
 <body>
     <header>
         <img src="assets/images/pokemonlogo.png" alt="pokemon logo" id="logo-header">
     </header>
     <main>
-        <div class="pokemon-container">
-           <img id="pokemon-image" src="" alt="Pokémon" style="display: none;"/>
-            <p id="pokemon-name"></p>
-            <div class="indicators">
-                <p class="score-time" id="score-display">Score: 151</p>
-                <p id="answer-indicator"></p>
-                <p class="score-time">Time: 99</p>
+        <div id="start-screen">
+
+        </div>
+        <div id="game-screen">
+            <div class="pokemon-container">
+                <img id="pokemon-image" src="" alt="Pokémon" style="display: none;" />
+                <p id="pokemon-name"></p>
+                <div class="indicators">
+                    <p class="score-time" id="score-display">Score: 0</p>
+                    <p id="answer-indicator"></p>
+                    <p class="score-time">Time: 99</p>
+                </div>
+
+            </div>
+            <div id="answer-area">
+                <div id="type-area">
+                    <button class="type-btn" data-type="grass">
+                        <img class="type-icon" src="assets/images/type-logos/Grass.png" alt="grass">
+                    </button>
+                    <button class="type-btn" data-type="fire">
+                        <img class="type-icon" src="assets/images/type-logos/Fire.png" alt="fire">
+                    </button>
+                    <button class="type-btn" data-type="water">
+                        <img class="type-icon" src="assets/images/type-logos/Water.png" alt="water">
+                    </button>
+                    <button class="type-btn" data-type="electric">
+                        <img class="type-icon" src="assets/images/type-logos/Electric.png" alt="electric">
+                    </button>
+                    <button class="type-btn" data-type="psychic">
+                        <img class="type-icon" src="assets/images/type-logos/Psychic.png" alt="psychic">
+                    </button>
+                    <button class="type-btn" data-type="ice">
+                        <img class="type-icon" src="assets/images/type-logos/Ice.png" alt="ice">
+                    </button>
+                    <button class="type-btn" data-type="dragon">
+                        <img class="type-icon" src="assets/images/type-logos/Dragon.png" alt="dragon">
+                    </button>
+                    <button class="type-btn" data-type="ghost">
+                        <img class="type-icon" src="assets/images/type-logos/Ghost.png" alt="ghost">
+                    </button>
+                    <button class="type-btn" data-type="bug">
+                        <img class="type-icon" src="assets/images/type-logos/Bug.png" alt="bug">
+                    </button>
+                    <button class="type-btn" data-type="rock">
+                        <img class="type-icon" src="assets/images/type-logos/Rock.png" alt="rock">
+                    </button>
+                    <button class="type-btn" data-type="ground">
+                        <img class="type-icon" src="assets/images/type-logos/Ground.png" alt="ground">
+                    </button>
+                    <button class="type-btn" data-type="poison">
+                        <img class="type-icon" src="assets/images/type-logos/Poison.png" alt="poison">
+                    </button>
+                    <button class="type-btn" data-type="flying">
+                        <img class="type-icon" src="assets/images/type-logos/Flying.png" alt="flying">
+                    </button>
+                    <button class="type-btn" data-type="fighting">
+                        <img class="type-icon" src="assets/images/type-logos/Fighting.png" alt="fighting">
+                    </button>
+                    <button class="type-btn" data-type="normal">
+                        <img class="type-icon" src="assets/images/type-logos/Normal.png" alt="normal">
+                    </button>
+                </div>
+                <div id="nxtqst-container">
+                    <img class="pokeball-icon" src="assets/images/pokemon-icon.png" alt="Pokéball Icon">
+                    <button id="next-question" class="type-btn" data-type="passed"><img id="next-img"
+                            src="assets/images/nextquestion.png" alt="Next Question?"></button>
+                    <img class="pokeball-icon" src="assets/images/pokemon-icon.png" alt="Pokéball Icon">
+                </div>
             </div>
 
         </div>
-    <div id="answer-area">
-        <div id="type-area">
-            <button class="type-btn" data-type="grass">
-                <img class="type-icon" src="assets/images/type-logos/Grass.png" alt="grass">
-            </button>
-            <button class="type-btn" data-type="fire">
-                <img class="type-icon" src="assets/images/type-logos/Fire.png" alt="fire">
-            </button>
-            <button class="type-btn" data-type="water">
-                <img class="type-icon" src="assets/images/type-logos/Water.png" alt="water">
-            </button>
-            <button class="type-btn" data-type="electric">
-                <img class="type-icon" src="assets/images/type-logos/Electric.png" alt="electric">
-            </button>
-            <button class="type-btn" data-type="psychic">
-                <img class="type-icon" src="assets/images/type-logos/Psychic.png" alt="psychic">
-            </button>
-            <button class="type-btn" data-type="ice">
-                <img class="type-icon" src="assets/images/type-logos/Ice.png" alt="ice">
-            </button>
-            <button class="type-btn" data-type="dragon">
-                <img class="type-icon" src="assets/images/type-logos/Dragon.png" alt="dragon">
-            </button>
-            <button class="type-btn" data-type="ghost">
-                <img class="type-icon" src="assets/images/type-logos/Ghost.png" alt="ghost">
-            </button>
-            <button class="type-btn" data-type="bug">
-                <img class="type-icon" src="assets/images/type-logos/Bug.png" alt="bug">
-            </button>
-            <button class="type-btn" data-type="rock">
-                <img class="type-icon" src="assets/images/type-logos/Rock.png" alt="rock">
-            </button>
-            <button class="type-btn" data-type="ground">
-                <img class="type-icon" src="assets/images/type-logos/Ground.png" alt="ground">
-            </button>
-            <button class="type-btn" data-type="poison">
-                <img class="type-icon" src="assets/images/type-logos/Poison.png" alt="poison">
-            </button>
-            <button class="type-btn" data-type="flying">
-                <img class="type-icon" src="assets/images/type-logos/Flying.png" alt="flying">
-            </button>
-            <button class="type-btn" data-type="fighting">
-                <img class="type-icon" src="assets/images/type-logos/Fighting.png" alt="fighting">
-            </button>
-            <button class="type-btn" data-type="normal">
-                <img class="type-icon" src="assets/images/type-logos/Normal.png" alt="normal">
-            </button>
+        <div id="score-screen">
+
         </div>
-    <div id="nxtqst-container">
-        <img class="pokeball-icon" src="assets/images/pokemon-icon.png" alt="Pokéball Icon">
-        <button id="next-question" class="type-btn" data-type="passed"><img id="next-img" src="assets/images/nextquestion.png" alt="Next Question?"></button>
-        <img class="pokeball-icon" src="assets/images/pokemon-icon.png" alt="Pokéball Icon">
-    </div>
-    </div>
+
     </main>
-<!--   <footer>
-        
-            <p>@Pokémon</p>
-        
-    </footer> -->
     <script src="assets/js/script.js"></script>
 </body>
+
 </html>

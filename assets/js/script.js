@@ -23,7 +23,7 @@ async function getPokemon() {
             pokemonType = type.filter(type => type !== 'steel');
         } else if (name.toLowerCase() === 'clefable' || name.toLowerCase() === 'clefairy') {
             pokemonType = type.filter(type => type !== 'fairy').concat('normal');
-        } else if (name.toLowerCase() === 'wigglytuff') {
+        } else if (name.toLowerCase() === 'wigglytuff' || name.toLowerCase () === 'jigglypuff') {
             pokemonType = type.filter(type => type !== 'fairy');
         } else {
             pokemonType = type;
@@ -72,7 +72,7 @@ function handleClick(event) {
 
         if (isCorrect) {
             score += 1;
-           /* document.getElementById('score-display').textContent = `Score: ${score}`;*/
+            document.getElementById('score-display').textContent = `Score: ${score}`;
             displayCorrectAnswer();
             console.log(score)
         } else {

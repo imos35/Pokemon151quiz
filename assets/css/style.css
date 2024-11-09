@@ -7,27 +7,24 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    
 }
 
 body, html {
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
 }
 
 body {
     min-height: 100vh;
-    display: flex;
-    flex-direction: column;
     background-color: red;
     font-family: 'pokemon', sans-serif;
     color: #ffcc03;
     text-transform: capitalize;
     text-shadow: 
-    -2px -2px 0 #006caf,
-    2px -2px 0 #006caf,
-    -2px 2px 0 #006caf,
-    2px 2px 0 #006caf;
-    font-family: 'pokemon', sans-serif;
+        -2px -2px 0 #006caf,
+        2px -2px 0 #006caf,
+        -2px 2px 0 #006caf,
+        2px 2px 0 #006caf;
 }
 
 header {
@@ -37,21 +34,34 @@ header {
     padding: 15px;
 }
 
+header img {
+    width: 300px;
+    height: auto;
+}
+
 main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    flex-grow: 1;
-    justify-content: space-evenly;
-    padding-bottom: 30px;
+    width: 100%;
+}
+
+#game-screen {
+    display: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 0;
 }
 
 .pokemon-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    margin-top: -50px;
+    margin-top: -30px;
 }
 
 #pokemon-image {
@@ -60,55 +70,72 @@ main {
 }
 
 #pokemon-name {
-
     font-size: 1.5rem;
-
+    text-align: center;
+    margin: 10px 0;
 }
 
 .indicators {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     width: 100%;
     max-width: 400px;
-    margin: 0 auto;
+    margin: 0 200px;
+    position: relative;
+}
 
+.indicators p:first-child {
+    position: absolute;
+    left: 0;
+}
+
+.indicators p:last-child {
+    position: absolute;
+    right: 0;
 }
 
 #answer-indicator {
+    height: 25px;
     text-align: center;
-    width: 200px;
-    height: 20px;
-    margin-top: 15px;
-    margin-bottom: -15px;
+    min-width: 100px;
+    padding: 5px;
     white-space: nowrap;
-
 }
 
 .score-time {
     flex-shrink: 0;
     font-size: 1.2rem;
-    margin-bottom: -30px;
     padding: 0 15px;
 }
 
-#logo-header {
-    max-width: 300px;
+#answer-area {
+    width: 100%;
+    max-width: 450px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 40px auto;
+    padding: 0;
 }
 
 #type-area {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     justify-content: center;
-    align-items: center;
-    gap: 10px;
+    gap: 8px;
+    margin-bottom: -10px;
 }
 
 .type-btn {
-    width: 75px;
+    width: 90px;
     border: none;
     background-color: transparent;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 5px;
 }
 
 .type-btn.pressed {
@@ -125,6 +152,7 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 25px;
 }
 
 #next-question {
@@ -132,26 +160,15 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 20px auto;
     background-color: transparent;
     cursor: pointer;
     border: none;
-
 }
 
 #next-img {
     max-width: 100%;
     height: auto;
-}
-
-footer {
-    padding-top: 10px;
-    padding-bottom: 15px;
-
-}
-
-footer p {
-    padding: 0px 10px;
+    padding: 0 15px;
 }
 
 .pokeball-icon {
