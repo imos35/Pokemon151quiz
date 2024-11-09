@@ -1,5 +1,22 @@
 console.log('script loaded');
 
+async function fetchRandomPokemon() {
+    try {
+        let randomPokemon = (Math.floor(Math.random() * 151) + 1);
+        let response = await fetch(`https://pokeapi.co/api/v2/pokemon/${randomPokemon}`);
+        let data = await response.json();
+
+        let sprite = data.sprites.front_default;
+
+        document.getElementById('start-pokemon-image').src = sprite;
+
+    } catch (error) {
+        console.log("Could not fetch Pokémon! Error:", error);
+    }
+}
+
+document.addEventListener('DOMContentLoaded', fetchRandomPokemon);
+
 let pokemonImage = document.getElementById('pokemon-image');
 let pokemonName = document.getElementById('pokemon-name');
 let answerIndi = document.getElementById('answer-indicator');
@@ -23,7 +40,7 @@ async function getPokemon() {
             pokemonType = type.filter(type => type !== 'steel');
         } else if (name.toLowerCase() === 'clefable' || name.toLowerCase() === 'clefairy') {
             pokemonType = type.filter(type => type !== 'fairy').concat('normal');
-        } else if (name.toLowerCase() === 'wigglytuff' || name.toLowerCase () === 'jigglypuff') {
+        } else if (name.toLowerCase() === 'wigglytuff' || name.toLowerCase() === 'jigglypuff') {
             pokemonType = type.filter(type => type !== 'fairy');
         } else {
             pokemonType = type;
@@ -141,4 +158,3 @@ function handleNextQuestion() {
     }, 300);
 }
 
-document.addEventListener('DOMContentLoaded', getPokemon);
