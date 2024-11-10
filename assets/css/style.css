@@ -10,8 +10,7 @@
 }
 
 body, html {
-    overflow-x: hidden;
-    overflow-y: hidden;
+    overflow: hidden;
     touch-action: none;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
@@ -20,7 +19,6 @@ body, html {
 
 body {
     min-height: 100vh;
-    background-color: red;
     font-family: 'pokemon', sans-serif;
     color: #ffcc03;
     text-transform: capitalize;
@@ -301,8 +299,8 @@ main {
 @media (min-width: 768px) {
 
 
-body {
-    background-image: url('assets/images/pokeball_background1.webp');
+body, html {
+    background-image: url('assets/images/pokeball_background1.png');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
@@ -334,7 +332,7 @@ main {
 
 /* START AREA */
 
-#start-screen, #game-screen {
+#start-screen {
     margin-top: 80px;
 }
 
@@ -353,9 +351,29 @@ main {
 
 /* GAME AREA */
 
+#game-screen {
+    margin-top: 30px;
+}
+
 #pokemon-image {
-    width: 50%;
+    width: 40%;
     margin-bottom: -20px;
+}
+
+.indicators {
+    max-width: 700px;
+}
+
+#answer-indicator {
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+    width: 300px;
+    height: 25px;
+}
+
+.score-time {
+    font-size: 2rem;
+    padding: 0 70px;
 }
 
 #nxtqst-container {
