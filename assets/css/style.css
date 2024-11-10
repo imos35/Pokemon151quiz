@@ -19,6 +19,7 @@ body, html {
 
 body {
     min-height: 100vh;
+    background-color: red;
     font-family: 'pokemon', sans-serif;
     color: #ffcc03;
     text-transform: capitalize;
@@ -307,7 +308,6 @@ body, html {
     background-attachment: fixed;
     margin: 0;
     padding: 0;
-
 }
 
 header {
@@ -365,8 +365,8 @@ main {
 }
 
 #answer-indicator {
-    font-size: 1.8rem;
-    margin-bottom: 30px;
+    font-size: 1.5rem;
+    margin-bottom: 40px;
     width: 300px;
     height: 25px;
 }
