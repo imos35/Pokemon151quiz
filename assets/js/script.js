@@ -92,7 +92,7 @@ typeButtons.forEach(button => {
 function handleClick(event) {
     let clickedButton = event.currentTarget;
     let buttonType = clickedButton.getAttribute('data-type');
-    console.log('buttonType')
+    console.log('buttonType');
 
     // Handle button press effects
     typeButtons.forEach(button => button.classList.remove('pressed'));
@@ -232,5 +232,6 @@ document.getElementById('restart-btn').addEventListener('click', () => {
 // Initialize data when page loads
 
 document.addEventListener('DOMContentLoaded', () => {
-    fetchAllPokemon(), showTutorialScreen();
+    fetchAllPokemon(); 
+    showTutorialScreen();
 });
