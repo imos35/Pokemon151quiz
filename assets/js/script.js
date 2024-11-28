@@ -226,6 +226,7 @@ document.getElementById('next-btn').addEventListener('click', showStartScreen);
 document.getElementById('start-btn').addEventListener('click', showGameScreen);
 document.getElementById('restart-btn').addEventListener('click', () => {
     score = 0;
+    document.getElementById('score-display').textContent = `Score: ${score}`;
     showStartScreen();
 });
 
